@@ -22,12 +22,13 @@ else
 	{
 		$errors['email']= "Please enter Valid Email-Id";
 	}
-	$que1="SELECT `id` FROM `internship` WHERE `email`={$_POST['email']}";
+	$que1="SELECT `id` FROM `internship` WHERE `email`='{$_POST['email']}'";
 	if($res=mysqli_query($connection,$que1))
 	{
 		$resarr=mysqli_fetch_all($res);
 		if(count($resarr)>0)
 		{
+
 			$errors['email']="The user has aldready an account";
 		}
 	}
